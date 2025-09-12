@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+printing() {
+    echo "====================================================================================================================================================================="
+    echo $1
+    echo "====================================================================================================================================================================="
+}
+
+cd $(pwd)/
+printing "cd $(pwd)/"
+source ~/.bashrc
+
+for i in {1..10}
+do
+    git submodule update --init --force
+done
+
+# 判断用户是否传入参数
+if [ -z "$1" ]; then
+    printing "此次没有参数额外传递，执行 make clean && make distclean ..."
+    make clean && make distclean 
+elif [ "$1" = "666" ]; then
+    printing "这次不能执行 make clean && make distclean ..."
+fi
+
+if [ -f bootstrap.sh ]; then
+    printing "发现 bootstrap.sh，执行./bootstrap.sh ....."
+    ./bootstrap.sh
+fi
+
+if [ -f configure.ac ] || [ -f configure.in ]; then
+    printing "此为 reconfigure 项目，正在执行 autoreconf -fi ....."
+    autoreconf -fi
+    ./configure  
+    make -j $(nproc)
+    make all -j $(nproc)
+    make install
+elif [ -f configure ]; then
+    printing "此为 configure 项目，正在执行 configure ....."
+    ./configure  
+    make -j $(nproc)
+    make all -j $(nproc)
+    make install
+elif [ -f CMakeLists.txt ]; then
+    rm -rf building
+    printing "此为 cmake 项目，正在执行 cmake .. "
+    mkdir building
+    cd building
+    cmake ..
+    make -j $(nproc)
+    make all -j $(nproc)
+    make install
+elif [ -f Makefile ]; then
+    printing "此为 Makefile 项目，正在执行 make ....."
+    if command -v ./configure; then
+        ./configure  
+        printing "成功在 Makefile 之前执行了 ./configure .."
+    else
+        printing "没能在 Makefile 之前执行了 ./configure .."
+    fi
+    make -j $(nproc)
+    make all -j $(nproc)
+    make install
+elif [ -f meson.build ]; then
+    printing "此为最傻逼的 Meson 项目！！！正在执行 meson setup ....."
+    meson setup builddir --buildtype=release -Ddefault_library=shared
+    meson compile -C builddir
+    meson install -C builddir
+elif [ -f Makefile.PL ]; then
+    printing "检测到 Perl 模块工程，准备安装依赖..."
+    if command -v cpanm >/dev/null 2>&1; then
+        cpanm --installdeps .
+    else
+        printing "未发现 cpanm，请先安装: sudo apt install cpanminus"
+        exit 1
+    fi
+    printing "依赖已安装，开始构建..."
+    perl Makefile.PL
+    make -j $(nproc)
+    make all -j $(nproc)
+    make test
+    make install
+else
+    printing "没有发现可识别的构建配置文件"
+    exit 1
+fi

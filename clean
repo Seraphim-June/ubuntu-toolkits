@@ -1,0 +1,5 @@
+#!/bin/bash
+cd $(pwd)/
+source /root/.bashrc
+make clean
+make distclean

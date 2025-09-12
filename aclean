@@ -1,0 +1,4 @@
+#!/bin/bash
+apt autopurge;
+apt autoremove;
+apt autoclean;
