@@ -1,0 +1,6 @@
+#!/bin/bash
+# 遍历所有传入参数
+cd $(pwd)/
+for arg in "$@"; do
+    apt-get reinstall --no-install-suggests --no-install-recommends $arg
+done

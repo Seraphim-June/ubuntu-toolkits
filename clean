@@ -1,0 +1,9 @@
+#!/bin/bash
+cd $(pwd)/
+source /root/.bashrc
+make clean
+make distclean
+make maintainer-clean
+ninja clean
+rm -rf $1 # 你的编译目录
+make uninstall
