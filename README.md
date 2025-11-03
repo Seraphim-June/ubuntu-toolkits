@@ -1,15 +1,15 @@
 # ubuntu-toolkits
-一些用来方便使用ubuntu（或是debian）命令的东西？
+用来方便使用ubuntu（或是debian）命令的南北...
 
 # -------------------------------------------------------------
 ## 记得克隆最新的tag！记得克隆最新的tag！记得克隆最新的tag！重要的事情说三遍...
-## 比如切换到new-001这个tag
+## 比如切换到Throat inflammation这里
 # -------------------------------------------------------------
 ## 那么接下来...
 ## 请直接切换到/root目录下
-## 执行 git clone https://github.com/Seraphim-June/ubuntu-toolkits.git
+## 执行 git clone -g xxxxxx(某个你想要的分支) https://github.com/Seraphim-June/ubuntu-toolkits.git
 ## 把里边的文件移到/root下边
-## 再写这样一个脚本(原先的沟是脚本太烂了，这里给大家鞠躬道歉...)：
+## 再写这样一个脚本(这次还是直接把脚本放到里边吧，各位改一改就可以了...)：
 
 > #!/bin/bash<br>
 > chmod 777 ./*<br>
@@ -19,6 +19,7 @@
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/clean-dw "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/clean-rdw "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/ds "$d/"; done<br>
+> for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/rrmm "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/full-dw "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/gclone "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/getit "$d/"; done<br>
