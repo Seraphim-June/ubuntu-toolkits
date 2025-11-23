@@ -13,6 +13,7 @@
 
 > #!/bin/bash<br>
 > chmod 777 ./*<br>
+> for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/rrmm "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/aclean "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/bu "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/clean "$d/"; done<br>
@@ -28,4 +29,5 @@
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/senable "$d/"; done<br>
 > for d in /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin; do ln -s -f $(pwd)/supers.py "$d/"; done<br>
 <br>
+### 新安装的ubuntu-server或是ubuntu，直接执行apt install --no-install-suggests --no-install-recommends vim git就行了
 **Full Changelog**: https://github.com/Seraphim-June/ubuntu-toolkits/commits/new-001<br>
