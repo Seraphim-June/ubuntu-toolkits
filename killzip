@@ -1,0 +1,25 @@
+#!/bin/bash
+cd $(pwd)/$1
+rm -rf ./*.tar.gz
+rm -rf ./*.tar.xz
+rm -rf ./*.tar.bz
+rm -rf ./*.tar.bz2
+rm -rf ./*.tar.gz2
+rm -rf ./*.tar.zx
+rm -rf ./*.tar
+rm -rf ./*.zip
+rm -rf ./*.gz
+rm -rf ./*.gz2
+rm -rf ./*.bz
+rm -rf ./*.bz2
+rm -rf ./*.xz
+rm -rf ./*.zx
+rm -rf ./*.tar
+rm -rf ./*.zip
+rm -rf ./*.asc
+rm -rf ./*.bsc
+rm -rf ./*.dsc
+rm -rf ./*.sha256
+rm -rf ./*.sha1
+rm -rf ./*.sha*
+rm -rf ./*.deb
