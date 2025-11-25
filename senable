@@ -1,4 +1,0 @@
-#!/bin/bash
-systemctl enable $1 --now;
-systemctl daemon-reload;
-systemctl restart $1;
