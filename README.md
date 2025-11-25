@@ -3,5 +3,5 @@
 ## 在 cd /root/ && git clone -b a_better_one https://github.com/Seraphim-June/ubuntu-toolkits
 ## 之后，就已经包含在ubuntu-toolkits里边了，所以直接执行就好
 > ........
->> git clone https://github.com/Seraphim-June/ubuntu-toolkits
+>> git clone -b a_better_one https://github.com/Seraphim-June/ubuntu-toolkits
 >> 唉，活着哪儿有容易的阿......
