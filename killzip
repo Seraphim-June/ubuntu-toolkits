@@ -14,6 +14,9 @@ rm -rf ./*.bz
 rm -rf ./*.bz2
 rm -rf ./*.xz
 rm -rf ./*.zx
+rm -rf ./*.rar
+rm -rf ./*.7zip
+rm -rf ./*.7z
 rm -rf ./*.tar
 rm -rf ./*.zip
 rm -rf ./*.asc
